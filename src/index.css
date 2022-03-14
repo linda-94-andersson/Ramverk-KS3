@@ -1,0 +1,7 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0 auto;
+  padding-inline-start: 0;
+  box-sizing: border-box;
+}
