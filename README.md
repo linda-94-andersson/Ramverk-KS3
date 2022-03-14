@@ -1,11 +1,11 @@
-## Kunskapskontroll 3
+# Kunskapskontroll 3
 
 
-# Deployment
+## Deployment
 
 https://ramverk-ks3.netlify.app/
 
-# How
+## How
 
 Här ska ni bygga en Webbshop med hjälp av tekniker vi har gått igenom hittills i kursen, bland annat:
 - Koncepten i React (Komponenter, state, props, mapp-struktur)
@@ -24,7 +24,7 @@ Det är inget krav på följande i denna kunskapskontroll:
 - Att hämta produkter från ett externt API
 - Kunna "gå till betalning/checkout" med sin beställning
 
-# Examination
+## Examination
 
 Denna kunskapskontrollen kan du uppnå betygen Väl Godkänt, Godkänt eller Icke Godkänt.
 
