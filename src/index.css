@@ -5,3 +5,31 @@
   padding-inline-start: 0;
   box-sizing: border-box;
 }
+
+.App {
+  background-color: aqua;
+}
+
+.nav {
+  background-color:chartreuse; 
+}
+
+.Galleri {
+  background-color: bisque;
+}
+
+.Item {
+  background-color: blueviolet;
+}
+
+.Cart {
+  background-color: brown;
+}
+
+.Cart-item {
+  background-color: coral;
+}
+
+.item-detail{
+  background-color: cornflowerblue;
+}
