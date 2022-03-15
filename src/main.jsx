@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./index.css";
+import "./style/index.css";
 import App from "./App";
 import Galleri from "./routes/Galleri";
 import Cart from "./routes/Cart";

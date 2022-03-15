@@ -2,12 +2,13 @@ import React from "react";
 import Item from "../Item";
 import Navbar from "../Navbar";
 
-function Galleri() {
+function Galleri({ items }) {
+
   return (
     <div className="Galleri">
-      <Navbar />
+      <Navbar items={items}/>
       <h2>Våra klipp</h2>
-      <Item />
+      <Item items={items} />
     </div>
   );
 }

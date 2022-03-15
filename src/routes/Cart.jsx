@@ -3,6 +3,7 @@ import CartItem from "../CartItem";
 import Navbar from "../Navbar";
 
 function Cart() {
+
   return (
     <div className="Cart">
       <Navbar />

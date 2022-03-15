@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 
-function ItemDetail() {
+function ItemDetail({items}) {
   return (
     <div className="item-detail">
-      <Navbar />
+      <Navbar items={items}/>
       <img src="" alt="produkt-detail" />
       <h1>Produkt</h1>
       <h2>599kr</h2>
