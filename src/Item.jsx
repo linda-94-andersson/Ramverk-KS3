@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Data from "./data/Data";
 
@@ -7,15 +7,19 @@ function Item() {
   const [cartItems, setCartItems] = useState([]);
 
   const handleAddProduct = (product) => {
-    const ProductExist = cartItems.find((item) => item.id === product.id); 
+    const ProductExist = cartItems.find((items) => items.id === product.id);
     if (ProductExist) {
-      setCartItems(cartItems.map((item) => item.id === product.id ?
-      {...ProductExist, quantity: ProductExist.quantity +1}: item)
+      setCartItems(
+        cartItems.map((items) =>
+          items.id === product.id
+            ? { ...ProductExist, quantity: ProductExist.quantity + 1 }
+            : items
+        )
       );
     } else {
-      setCartItems([...cartItems, {...product, quantity: 1}]); 
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
-  }
+  };
 
   return (
     <section className="Items">
@@ -27,7 +31,7 @@ function Item() {
           <Link to="/ItemDetail" items={items}>
             <button>More &gt;</button>
           </Link>
-            <button onClick={() => handleAddProduct(items)}>Add to cart</button>
+          <button onClick={() => handleAddProduct(items)}>Add to cart</button>
         </div>
       ))}
     </section>

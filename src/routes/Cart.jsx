@@ -1,5 +1,6 @@
 import React from "react";
 import CartItem from "../CartItem";
+import { Counter } from "../Counter";
 import Navbar from "../Navbar";
 
 function Cart() {
@@ -15,6 +16,7 @@ function Cart() {
         <h3>599kr</h3>
         <button>Checkout</button>
       </div>
+      <Counter/>
     </div>
   );
 }
