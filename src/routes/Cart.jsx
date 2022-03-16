@@ -1,13 +1,12 @@
 import React from "react";
 import CartItem from "../CartItem";
 import { Counter } from "../test redux/Counter";
-import Header from "../containers/Header";
+import testStore from "../redux/testStore";
+import { Provider } from "react-redux";
 
 function Cart() {
-
   return (
     <div className="cart">
-      <Header />
       <CartItem />
       <div>
         <h2>Frakt</h2>
@@ -16,7 +15,9 @@ function Cart() {
         <h3>599kr</h3>
         <button>Checkout</button>
       </div>
-      <Counter/>
+      <Provider store={testStore}>
+        <Counter />
+      </Provider>
     </div>
   );
 }

@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../redux/actions/productActions";
 import ProductComponent from "./ProductComponent";
 
-const ProductListing = () => {
+const ProductPage = () => {
   const products = useSelector((state) => state.allProducts.products);
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
-  console.log("Products: ",products);
 
   return (
     <div>
@@ -19,4 +18,4 @@ const ProductListing = () => {
   );
 };
 
-export default ProductListing;
+export default ProductPage;

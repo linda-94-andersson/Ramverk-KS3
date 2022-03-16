@@ -1,40 +1,34 @@
 import React from "react";
-import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./containers/Header";
-
-// import Galleri from "./routes/Galleri";
-// import Cart from "./routes/Cart";
-// import ItemDetail from "./routes/ItemDetail";
-import ProductListing from "./containers/ProductListing";
+import Cart from "./routes/Cart";
+import ProductPage from "./containers/ProductPage";
 import ProductDetail from "./containers/ProductDetail";
+import HomePage from "./routes/HomePage";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
-
         <Routes>
-          <Route path="/" exact component={ProductListing}  element={<ProductListing/>}/>
-          <Route path="/product/:productId" exact component={ProductDetail} element={<ProductDetail/>}/>
+          <Route path="/" exact component={HomePage} element={<HomePage />} />
+          <Route
+            path="/products"
+            exact
+            component={ProductPage}
+            element={<ProductPage />}
+          />
+          <Route
+            path="/product/:productId"
+            exact
+            component={ProductDetail}
+            element={<ProductDetail />}
+          />
+          <Route path="cart" component={Cart} element={<Cart />} />
           <Route>404 Not Found!</Route>
-
-          {/* <Route path="/" element={<App />} />
-          <Route path="Galleri" element={<Galleri />} />
-          <Route path="Cart" element={<Cart />} />
-          <Route path="ItemDetail" element={<ItemDetail />} /> */}
         </Routes>
       </BrowserRouter>
-
-      {/* <img src="" alt="product-promotion" />
-      <h1>Välkommen till TUNGSTORE</h1>
-      <p>Vi har fullt på bilen i grejor</p>
-      <p>Mycket prisvärt</p>
-
-      <span>Klicka här för att se vår klipp</span>
-      <Link to="/Galleri">
-        <button>Se våra klipp</button>
-      </Link> */}
     </div>
   );
 }
