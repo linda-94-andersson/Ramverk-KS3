@@ -50,11 +50,11 @@
   color: #fffc3c;
 }
 
-.Galleri {
+.galleri {
   background-color: bisque;
 }
 
-.Items {
+.items {
   margin: 20px auto;
   width: 80%;
   display: flex;
@@ -63,7 +63,7 @@
   border-radius: 5px;
 }
 
-.Item {
+.item {
   background-color: blueviolet;
   width: 300px;
   height: 550px;
@@ -74,20 +74,20 @@
   margin: 40px 20px;
 }
 
-.Item h2 {
+.item h2 {
   text-transform: uppercase;
   margin: 10px 0px;
   font-size: 19px;
 }
 
-.Item h3 {
+.item h3 {
   margin: 10px 0px;
   padding-bottom: 20px;
   font-size: 28px;
   line-height: 30px;
 }
 
-.Item button {
+.item button {
   font-weight: 700;
   font-size: 18px;
   border-radius: 5px;
@@ -103,15 +103,15 @@
   margin: 15px auto;
 }
 
-.Item a {
+.item a {
   text-decoration: none;
 }
 
-.Item button:hover {
+.item button:hover {
   background-color: red;
 }
 
-.Item button:active {
+.item button:active {
   transform: translateY(2px);
 }
 
@@ -124,12 +124,12 @@
   object-fit:fill;
 }
 
-.Cart {
+.cart {
   background-color: brown;
   
 }
 
-.Cart-item {
+.cart-item {
   background-color: coral;
   margin: 30px auto;
   width: 50%;

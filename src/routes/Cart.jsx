@@ -1,13 +1,13 @@
 import React from "react";
 import CartItem from "../CartItem";
-import { Counter } from "../Counter";
-import Navbar from "../Navbar";
+import { Counter } from "../test redux/Counter";
+import Header from "../containers/Header";
 
 function Cart() {
 
   return (
     <div className="Cart">
-      <Navbar />
+      <Header />
       <CartItem />
       <div>
         <h2>Frakt</h2>

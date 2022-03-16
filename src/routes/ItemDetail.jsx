@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../Navbar";
+import Header from "../containers/Header";
 
 function ItemDetail({items}) {
   return (
     <div className="item-detail">
-      <Navbar items={items}/>
+      <Header items={items}/>
       <img src="" alt="produkt-detail" />
       <h1>Produkt</h1>
       <h2>599kr</h2>
