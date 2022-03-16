@@ -6,7 +6,7 @@ import Header from "../containers/Header";
 function Cart() {
 
   return (
-    <div className="Cart">
+    <div className="cart">
       <Header />
       <CartItem />
       <div>

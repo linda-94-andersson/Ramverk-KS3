@@ -9,7 +9,7 @@ function ItemDetail({items}) {
       <img src="" alt="produkt-detail" />
       <h1>Produkt</h1>
       <h2>599kr</h2>
-      <Link to="/Cart"><button>Lägg i varukorg</button></Link>
+      <Link to="/cart"><button>Lägg i varukorg</button></Link>
       <h3>Produktionfromation</h3>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam

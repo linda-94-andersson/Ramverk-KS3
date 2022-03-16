@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  selectedProduct,
+  fetchProduct,
   removeSelectedProduct,
 } from "../redux/actions/productActions";
 
@@ -13,17 +13,8 @@ const ProductDetail = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
 
-  const fetchProductDetail = async (id) => {
-    const response = await axios
-      .get(`https://fakestoreapi.com/products/${id}`)
-      .catch((err) => {
-        console.log("Err ", err);
-      });
-
-    dispatch(selectedProduct(response.data));
-  };
   useEffect(() => {
-    if (productId && productId !== "") fetchProductDetail(productId);
+    if (productId && productId !== "") dispatch(fetchProduct(productId));
     return () => {
       dispatch(removeSelectedProduct());
     };

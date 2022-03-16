@@ -39,7 +39,7 @@ function CartItem({ }) {
   );
 
   return (
-    <div className="Cart-item">
+    <div className="cart-item">
       <div className="cart-item-header">Cart Items</div>
 
       {cartItems.length === 0 && (

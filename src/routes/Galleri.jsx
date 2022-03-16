@@ -5,7 +5,7 @@ import Header from "../containers/Header";
 function Galleri({ items }) {
 
   return (
-    <div className="Galleri">
+    <div className="galleri">
       <Header items={items}/>
       <h2>Våra klipp</h2>
       <Item items={items} />

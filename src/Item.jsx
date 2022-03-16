@@ -22,13 +22,13 @@ function Item() {
   };
 
   return (
-    <section className="Items">
+    <section className="items">
       {items.map((items) => (
-        <div className="Item" key={items.id}>
+        <div className="item" key={items.id}>
           <img className="product-img" src={items.image} alt={items.title} />
           <h2>{items.title}</h2>
           <h3>${items.price}</h3>
-          <Link to="/ItemDetail" items={items}>
+          <Link to="/itemDetail" items={items}>
             <button>More &gt;</button>
           </Link>
           <button onClick={() => handleAddProduct(items)}>Add to cart</button>
