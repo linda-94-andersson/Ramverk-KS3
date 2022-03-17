@@ -3,8 +3,8 @@ import {Link} from "react-router-dom";
 
 function HomePage() {
   return (
-    <div>
-      <img src="" alt="product-promotion" />
+    <div className="home">
+      <img src="" alt="product-promotion" /> 
     <h1>Välkommen till TUNGSTORE</h1>
     <p>Vi har fullt på bilen i grejor</p>
     <p>Mycket prisvärt</p>

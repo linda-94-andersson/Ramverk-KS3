@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchProduct,
   removeSelectedProduct,
 } from "../redux/actions/productActions";
+import { Button, Card } from "react-bootstrap";
 
 const ProductDetail = () => {
   let product = useSelector((state) => state.product);
@@ -21,21 +22,27 @@ const ProductDetail = () => {
   return (
     <div>
       {Object.keys(product).length === 0 ? (
-        <div>...Loadig</div>
+        <div>...Loading</div>
       ) : (
         <div className="item-detail">
-          <img className="product-img" src={image} alt={title} />
-          <h1>{title}</h1>
-          <h2>${price}</h2>
-          <h3>Product information</h3>
-          <h4>{category}</h4>
-          <p>{description}</p>
-          <Link to="/cart">
-            <button>Add to Cart</button>
-          </Link>
+          <Card>
+            <Card.Img variant="top" src={image} alt={title} />
+            <Card.Body>
+              <Card.Title>
+                <h1>{title}</h1>
+              </Card.Title>
+              <Card.Subtitle style={{ paddingBottom: 10 }}>
+                <h2>${price}</h2>
+                <h3>Product information</h3>
+                <h4>{category}</h4>
+                <p>{description}</p>
+              </Card.Subtitle>
+              <Button variant="danger">Remove from cart</Button>
+              <Button>Add to Cart</Button>
+            </Card.Body>
+          </Card>
         </div>
       )}
-      ;
     </div>
   );
 };

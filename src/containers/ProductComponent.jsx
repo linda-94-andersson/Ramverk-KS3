@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Button } from "react-bootstrap";
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
@@ -14,11 +15,10 @@ const ProductComponent = () => {
             <h2>{title}</h2>
             <h3>${price}</h3>
             <h4>{category}</h4>
-            <button>More &gt;</button>
+            <Button>More &gt;</Button>
           </Link>
-          <Link to="/cart">
-            <button>Add to cart</button>
-          </Link>
+          <Button variant="danger">Remove from cart</Button>
+          <Button>Add to Cart</Button>
         </div>
       </section>
     );

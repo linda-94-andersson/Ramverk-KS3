@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../redux/actions/productActions";
+import Filters from "./Filters";
 import ProductComponent from "./ProductComponent";
 
 const ProductPage = () => {
@@ -12,8 +13,11 @@ const ProductPage = () => {
   }, []);
 
   return (
-    <div>
-      <ProductComponent />
+    <div className="product-page">
+      <Filters />
+      <div  className="filter-container">
+        <ProductComponent />
+      </div>
     </div>
   );
 };

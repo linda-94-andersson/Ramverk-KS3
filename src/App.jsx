@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./containers/Header";
 import Cart from "./routes/Cart";
@@ -25,7 +25,7 @@ function App() {
             component={ProductDetail}
             element={<ProductDetail />}
           />
-          <Route path="cart" component={Cart} element={<Cart />} />
+          <Route path="/cart" component={Cart} element={<Cart />} />
           <Route>404 Not Found!</Route>
         </Routes>
       </BrowserRouter>
