@@ -16,6 +16,7 @@ const Header = () => {
   const {
     state: { cart },
     dispatch,
+    productDispatch,
   } = CartState();
 
   return (
@@ -31,6 +32,12 @@ const Header = () => {
             style={{ width: 500 }}
             placeholder="Search a product"
             className="m-auto"
+            onChange={(e) => {
+              productDispatch({
+                type: "FILTER_BY_SEATCH",
+                payload: e.target.value,
+              });
+            }}
           />
         </Navbar.Text>
         <Nav>
@@ -47,14 +54,14 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          <Dropdown alignRight>
+          <Dropdown align={{ sm: "right" }}>
             <Dropdown.Toggle variant="success">
               <i
                 className="fa-solid fa-cart-shopping"
                 color="white"
                 fontSize="25px"
               ></i>
-              <Badge>{cart.length}</Badge>
+              <Badge bg="none">{cart.length}</Badge>
             </Dropdown.Toggle>
 
             <Dropdown.Menu style={{ minWidth: 370 }}>

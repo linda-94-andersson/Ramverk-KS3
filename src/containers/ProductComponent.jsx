@@ -5,16 +5,32 @@ import { Button } from "react-bootstrap";
 import { CartState } from "../context/Context";
 
 const ProductComponent = () => {
+  const {
+    state: { cart },
+    productState: { sort, searchQuery },
+    dispatch,
+  } = CartState();
+
   const products = useSelector((state) => state.allProducts.products);
-  const renderList = products.map((product) => {
+
+  const transformProducts = () => {
+    let sortedProducts = products;
+    if (sort) {
+      sortedProducts = sortedProducts.sort((a, b) =>
+        sort === "lowToHigh" ? a.price - b.price : b.price - a.price
+      );
+      return sortedProducts;
+    }
+
+    if (searchQuery) {
+      sortedProducts = sortedProducts.filter((props) =>
+        props.title.toLowerCase().includes(searchQuery)
+      );
+    }
+  };
+
+  const renderList = transformProducts().map((product) => {
     const { id, title, image, price, category } = product;
-
-    const {
-      state: { cart },
-      dispatch,
-    } = CartState();
-
-    console.log(cart); 
 
     return (
       <section className="items" key={id}>

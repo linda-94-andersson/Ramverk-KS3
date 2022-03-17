@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../redux/actions/productActions";
-import { cartReducer } from "./Reducers";
+import { cartReducer, productReducer } from "./Reducers";
 
 const Cart = createContext();
 
@@ -25,7 +25,15 @@ const Context = ({ children }) => {
     cart: [],
   });
 
-  return <Cart.Provider value={{ state, dispatch }}>{children}</Cart.Provider>;
+  const [productState, productDispatch] = useReducer(productReducer, {
+    searchQuery: "",
+  });
+
+  return (
+    <Cart.Provider value={{ state, dispatch, productState, productDispatch }}>
+      {children}
+    </Cart.Provider>
+  );
 };
 
 export const CartState = () => {
