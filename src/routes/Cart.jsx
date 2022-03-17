@@ -9,7 +9,7 @@ import { AiFillDelete } from "react-icons/ai";
 function Cart() {
   const {
     state: { cart },
-    dispatch,
+    cartDispatch,
   } = CartState();
 
   const [total, setTotal] = useState();
@@ -39,7 +39,7 @@ function Cart() {
                     as="select"
                     value={props.qty}
                     onChange={(e) =>
-                      dispatch({
+                      cartDispatch({
                         type: "CHANGE_CART_QTY",
                         payload: {
                           id: props.id,
@@ -58,7 +58,7 @@ function Cart() {
                     type="button"
                     variant="light"
                     onClick={() =>
-                      dispatch({
+                      cartDispatch({
                         type: "REMOVE_FROM_CART",
                         payload: props,
                       })
