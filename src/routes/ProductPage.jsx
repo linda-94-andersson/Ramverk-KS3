@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../redux/actions/productActions";
-import Filters from "./Filters";
-import ProductComponent from "./ProductComponent";
+import Filters from "../containers/Filters";
+import ProductComponent from "../containers/ProductComponent";
 
 const ProductPage = () => {
   const products = useSelector((state) => state.allProducts.products);

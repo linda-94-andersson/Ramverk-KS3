@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./containers/Header";
-import Cart from "./routes/Cart";
-import ProductPage from "./containers/ProductPage";
 import ProductDetail from "./containers/ProductDetail";
+import Cart from "./routes/Cart";
+import ProductPage from "./routes/ProductPage";
 import HomePage from "./routes/HomePage";
 
 function App() {
