@@ -15,7 +15,7 @@ import { AiFillDelete } from "react-icons/ai";
 const Header = () => {
   const {
     state: { cart },
-    dispatch,
+    cartDispatch,
     productDispatch,
   } = CartState();
 
@@ -86,7 +86,7 @@ const Header = () => {
                         fontSize="20px"
                         style={{ cursor: "pointer" }}
                         onClick={() =>
-                          dispatch({
+                          cartDispatch({
                             type: "REMOVE_FROM_CART",
                             payload: props,
                           })

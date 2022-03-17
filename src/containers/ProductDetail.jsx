@@ -10,20 +10,20 @@ import { CartState } from "../context/Context";
 
 const ProductDetail = () => {
   let product = useSelector((state) => state.product);
-  const { image, title, price, category, description } = product;
+  const { image, title, price, category, description, id } = product;
   const { productId } = useParams();
-  const reduxDispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (productId && productId !== "") dispatch(fetchProduct(productId));
     return () => {
-      reduxDispatch(removeSelectedProduct());
+      dispatch(removeSelectedProduct());
     };
   }, [productId]);
 
   const {
     state: { cart },
-    dispatch,
+    cartDispatch,
   } = CartState();
 
   return (
@@ -31,7 +31,7 @@ const ProductDetail = () => {
       {Object.keys(product).length === 0 ? (
         <div>...Loading</div>
       ) : (
-        <div className="item-detail">
+        <div className="item-detail" key={id}>
           <Card>
             <Card.Img variant="top" src={image} alt={title} />
             <Card.Body>
@@ -46,14 +46,14 @@ const ProductDetail = () => {
               </Card.Subtitle>
               {cart.some((p) => p.id === productId) ? (
                 <Button onClick={() => {
-                  dispatch({
+                  cartDispatch({
                     type: "REMOVE_FROM_CART",
                     payload: product,
                   })
                 }} variant="danger">Remove from cart</Button>
               ) : (
                 <Button onClick={() => {
-                  dispatch({
+                  cartDispatch({
                     type: "ADD_TO_CART",
                     payload: product,
                   })

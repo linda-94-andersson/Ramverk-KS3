@@ -20,7 +20,7 @@ const Context = ({ children }) => {
     description: product.description,
   }));
 
-  const [state, dispatch] = useReducer(cartReducer, {
+  const [state, cartDispatch] = useReducer(cartReducer, {
     products: cartProducts,
     cart: [],
   });
@@ -30,7 +30,7 @@ const Context = ({ children }) => {
   });
 
   return (
-    <Cart.Provider value={{ state, dispatch, productState, productDispatch }}>
+    <Cart.Provider value={{ state, cartDispatch, productState, productDispatch }}>
       {children}
     </Cart.Provider>
   );

@@ -5,13 +5,14 @@ import { Button } from "react-bootstrap";
 import { CartState } from "../context/Context";
 
 const ProductComponent = () => {
+  const products = useSelector((state) => state.allProducts.products);
+
   const {
     state: { cart },
     productState: { sort, searchQuery },
-    dispatch,
+    cartDispatch,
   } = CartState();
 
-  const products = useSelector((state) => state.allProducts.products);
 
   const transformProducts = () => {
     let sortedProducts = products;
@@ -48,7 +49,7 @@ const ProductComponent = () => {
             {cart.some((p) => p.id === id) ? (
               <Button
                 onClick={() => {
-                  dispatch({
+                  cartDispatch({
                     type: "REMOVE_FROM_CART",
                     payload: product,
                   });
@@ -60,7 +61,7 @@ const ProductComponent = () => {
             ) : (
               <Button
                 onClick={() => {
-                  dispatch({
+                  cartDispatch({
                     type: "ADD_TO_CART",
                     payload: product,
                   });
