@@ -4,7 +4,7 @@ import { CartState } from "../context/Context";
 
 const Filters = () => {
   const {
-    productState: { searchQuery, sort },
+    productState: { sort },
     productDispatch,
   } = CartState();
 

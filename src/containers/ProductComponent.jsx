@@ -19,14 +19,14 @@ const ProductComponent = () => {
       sortedProducts = sortedProducts.sort((a, b) =>
         sort === "lowToHigh" ? a.price - b.price : b.price - a.price
       );
-      return sortedProducts;
     }
 
     if (searchQuery) {
-      sortedProducts = sortedProducts.filter((props) =>
-        props.title.toLowerCase().includes(searchQuery)
+      sortedProducts = sortedProducts.filter((product) =>
+        product.title.toLowerCase().includes(searchQuery)
       );
     }
+    return sortedProducts;
   };
 
   const renderList = transformProducts().map((product) => {
@@ -34,39 +34,43 @@ const ProductComponent = () => {
 
     return (
       <section className="items" key={id}>
-        <div className="item">
-          <Link to={`/product/${id}`}>
-            <img className="product-img" src={image} alt={title} />
-            <h2>{title}</h2>
-            <h3>${price}</h3>
-            <h4>{category}</h4>
-            <Button>More &gt;</Button>
-          </Link>
-          {cart.some((p) => p.id === id) ? (
-            <Button
-              onClick={() => {
-                dispatch({
-                  type: "REMOVE_FROM_CART",
-                  payload: product,
-                });
-              }}
-              variant="danger"
-            >
-              Remove from cart
-            </Button>
-          ) : (
-            <Button
-              onClick={() => {
-                dispatch({
-                  type: "ADD_TO_CART",
-                  payload: product,
-                });
-              }}
-            >
-              Add to Cart
-            </Button>
-          )}
-        </div>
+        {Object.keys(product).length === 0 ? (
+          <div>...Loading</div>
+        ) : (
+          <div className="item">
+            <Link to={`/product/${id}`}>
+              <img className="product-img" src={image} alt={title} />
+              <h2>{title}</h2>
+              <h3>${price}</h3>
+              <h4>{category}</h4>
+              <Button>More &gt;</Button>
+            </Link>
+            {cart.some((p) => p.id === id) ? (
+              <Button
+                onClick={() => {
+                  dispatch({
+                    type: "REMOVE_FROM_CART",
+                    payload: product,
+                  });
+                }}
+                variant="danger"
+              >
+                Remove from cart
+              </Button>
+            ) : (
+              <Button
+                onClick={() => {
+                  dispatch({
+                    type: "ADD_TO_CART",
+                    payload: product,
+                  });
+                }}
+              >
+                Add to Cart
+              </Button>
+            )}
+          </div>
+        )}
       </section>
     );
   });

@@ -8,7 +8,7 @@ import {
   Dropdown,
   Button,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { CartState } from "../context/Context";
 import { AiFillDelete } from "react-icons/ai";
 
@@ -27,19 +27,23 @@ const Header = () => {
             <h2>TUNG STORE</h2>
           </Link>
         </Navbar.Brand>
-        <Navbar.Text className="search">
-          <FormControl
-            style={{ width: 500 }}
-            placeholder="Search a product"
-            className="m-auto"
-            onChange={(e) => {
-              productDispatch({
-                type: "FILTER_BY_SEATCH",
-                payload: e.target.value,
-              });
-            }}
-          />
-        </Navbar.Text>
+        {useLocation().pathname.split("/")[1] !== "cart" && (
+          <Navbar.Text className="search">
+            <FormControl
+              style={{ width: 500 }}
+              type="search"
+              placeholder="Search a product..."
+              className="m-auto"
+              aria-label="Search"
+              onChange={(e) => {
+                productDispatch({
+                  type: "FILTER_BY_SEARCH",
+                  payload: e.target.value,
+                });
+              }}
+            />
+          </Navbar.Text>
+        )}
         <Nav>
           <nav className="nav">
             <ul>
@@ -54,7 +58,7 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          <Dropdown align={{ sm: "right" }}>
+          <Dropdown align={{ sm: "left" }}>
             <Dropdown.Toggle variant="success">
               <i
                 className="fa-solid fa-cart-shopping"
