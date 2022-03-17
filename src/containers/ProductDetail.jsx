@@ -6,19 +6,26 @@ import {
   removeSelectedProduct,
 } from "../redux/actions/productActions";
 import { Button, Card } from "react-bootstrap";
+import { CartState } from "../context/Context";
 
 const ProductDetail = () => {
   let product = useSelector((state) => state.product);
   const { image, title, price, category, description } = product;
   const { productId } = useParams();
-  const dispatch = useDispatch();
+  const reduxDispatch = useDispatch();
 
   useEffect(() => {
     if (productId && productId !== "") dispatch(fetchProduct(productId));
     return () => {
-      dispatch(removeSelectedProduct());
+      reduxDispatch(removeSelectedProduct());
     };
   }, [productId]);
+
+  const {
+    state: { cart },
+    dispatch,
+  } = CartState();
+
   return (
     <div>
       {Object.keys(product).length === 0 ? (
@@ -37,8 +44,21 @@ const ProductDetail = () => {
                 <h4>{category}</h4>
                 <p>{description}</p>
               </Card.Subtitle>
-              <Button variant="danger">Remove from cart</Button>
-              <Button>Add to Cart</Button>
+              {cart.some((p) => p.id === productId) ? (
+                <Button onClick={() => {
+                  dispatch({
+                    type: "REMOVE_FROM_CART",
+                    payload: product,
+                  })
+                }} variant="danger">Remove from cart</Button>
+              ) : (
+                <Button onClick={() => {
+                  dispatch({
+                    type: "ADD_TO_CART",
+                    payload: product,
+                  })
+                }}>Add to Cart</Button>
+              )}
             </Card.Body>
           </Card>
         </div>

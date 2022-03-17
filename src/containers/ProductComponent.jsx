@@ -2,11 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
+import { CartState } from "../context/Context";
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
   const renderList = products.map((product) => {
     const { id, title, image, price, category } = product;
+
+    const {
+      state: { cart },
+      dispatch,
+    } = CartState();
+
+    console.log(cart); 
+
     return (
       <section className="items" key={id}>
         <div className="item">
@@ -17,8 +26,30 @@ const ProductComponent = () => {
             <h4>{category}</h4>
             <Button>More &gt;</Button>
           </Link>
-          <Button variant="danger">Remove from cart</Button>
-          <Button>Add to Cart</Button>
+          {cart.some((p) => p.id === id) ? (
+            <Button
+              onClick={() => {
+                dispatch({
+                  type: "REMOVE_FROM_CART",
+                  payload: product,
+                });
+              }}
+              variant="danger"
+            >
+              Remove from cart
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                dispatch({
+                  type: "ADD_TO_CART",
+                  payload: product,
+                });
+              }}
+            >
+              Add to Cart
+            </Button>
+          )}
         </div>
       </section>
     );
