@@ -45,21 +45,21 @@ const Header = () => {
           </Navbar.Text>
         )}
         <Nav className="me-auto">
-          <Nav.Link>
+          <Nav style={{ padding: 5 }}>
             <Link to="/">
               <span className="nav">Home</span>
             </Link>
-          </Nav.Link>
-          <Nav.Link>
+          </Nav>
+          <Nav style={{ padding: 5 }}>
             <Link to="/products">
               <span className="nav">Products</span>
             </Link>
-          </Nav.Link>
-          <Nav.Link>
+          </Nav>
+          <Nav style={{ padding: 5 }}>
             <Link to="/cart">
               <span className="nav">Go to Cart</span>
             </Link>
-          </Nav.Link>
+          </Nav>
           <Dropdown align="end" style={{ paddingLeft: 35 }}>
             <Dropdown.Toggle variant="success">
               <i

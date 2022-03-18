@@ -28,7 +28,7 @@ function HomePage() {
         <Card.Img
           src={image}
           alt={title}
-          style={{ height: 600, maxWidth: 700 }}
+          style={{ height: 600, width: 700, objectFit: "contain" }}
         />
         <Carousel.Caption style={{ paddingBottom: 10 }}>
           <p className="featured-p">{title}</p>
@@ -42,7 +42,7 @@ function HomePage() {
     <div>
       <Card>
         <Card.Title style={{ textAlign: "center" }}>
-          <h1>TUNGSTORE</h1>
+          <h1>TUNG STORE</h1>
           <h2>Featured products</h2>
         </Card.Title>
         {[...Array(1)].map(() => (

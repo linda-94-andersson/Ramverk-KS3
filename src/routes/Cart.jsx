@@ -19,14 +19,20 @@ function Cart() {
   }, [cart]);
 
   return (
-    <div className="cart home">
+    <div className="cart">
       <div className="productContainer">
         <ListGroup>
           {cart.map((props) => (
-            <ListGroup.Item key={props.id}>
+            <ListGroup.Item key={props.id} style={{ height: 200, width: 1000 }}>
               <Row>
                 <Col md={2}>
-                  <Image src={props.image} alt={props.title} fluid rounded />
+                  <Image
+                    style={{ objectFit: "contain", height: 180 }}
+                    src={props.image}
+                    alt={props.title}
+                    fluid
+                    rounded
+                  />
                 </Col>
                 <Col md={2}>
                   <span>{props.title}</span>
@@ -54,6 +60,11 @@ function Cart() {
                   </Form.Control>
                 </Col>
                 <Col md={2}>
+                  <Provider store={testStore}>
+                    <Counter />
+                  </Provider>
+                </Col>
+                <Col md={2}>
                   <Button
                     type="button"
                     variant="light"
@@ -79,10 +90,6 @@ function Cart() {
           Proceed to Checkout
         </Button>
       </div>
-
-      <Provider store={testStore}>
-        <Counter />
-      </Provider>
     </div>
   );
 }

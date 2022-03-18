@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Button } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { CartState } from "../context/Context";
 
 const ProductComponent = () => {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    });
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const products = useSelector((state) => state.allProducts.products);
 
   const {
@@ -12,7 +31,6 @@ const ProductComponent = () => {
     productState: { sort, searchQuery },
     cartDispatch,
   } = CartState();
-
 
   const transformProducts = () => {
     let sortedProducts = products;
@@ -39,44 +57,63 @@ const ProductComponent = () => {
           <div>...Loading</div>
         ) : (
           <div className="item">
-            <Link to={`/product/${id}`}>
-              <img className="product-img" src={image} alt={title} />
-              <h2>{title}</h2>
-              <h3>${price}</h3>
-              <h4>{category}</h4>
-              <Button>More &gt;</Button>
-            </Link>
-            {cart.some((p) => p.id === id) ? (
-              <Button
-                onClick={() => {
-                  cartDispatch({
-                    type: "REMOVE_FROM_CART",
-                    payload: product,
-                  });
-                }}
-                variant="danger"
-              >
-                Remove from cart
-              </Button>
-            ) : (
-              <Button
-                onClick={() => {
-                  cartDispatch({
-                    type: "ADD_TO_CART",
-                    payload: product,
-                  });
-                }}
-              >
-                Add to Cart
-              </Button>
-            )}
+            <Card style={{ height: 550 }}>
+              <Link to={`/product/${id}`}>
+                <Card.Img className="product-img" src={image} alt={title} />
+                <Card.Body>
+                  <Card.Title>
+                    <h2>{title}</h2>
+                  </Card.Title>
+                  <Card.Subtitle>
+                    <h3>${price}</h3>
+                    <h4>{category}</h4>
+                  </Card.Subtitle>
+                </Card.Body>
+              </Link>
+              <div className="btn-section">
+                <Link to={`/product/${id}`}>
+                  <Button>More</Button>
+                </Link>
+                {cart.some((p) => p.id === id) ? (
+                  <Button
+                    onClick={() => {
+                      cartDispatch({
+                        type: "REMOVE_FROM_CART",
+                        payload: product,
+                      });
+                    }}
+                    variant="danger"
+                  >
+                    Remove from cart
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={() => {
+                      cartDispatch({
+                        type: "ADD_TO_CART",
+                        payload: product,
+                      });
+                    }}
+                  >
+                    Add to Cart
+                  </Button>
+                )}
+              </div>
+            </Card>
           </div>
         )}
       </section>
     );
   });
 
-  return <>{renderList}</>;
+  return (
+    <>
+      {renderList}{" "}
+      <Button variant="dark" className="back-to-top" onClick={scrollToTop}>
+        &#8679;
+      </Button>
+    </>
+  );
 };
 
 export default ProductComponent;

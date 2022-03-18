@@ -44,20 +44,30 @@ const ProductDetail = () => {
                 <h4>{category}</h4>
                 <p>{description}</p>
               </Card.Subtitle>
-              {cart.some((p) => p.id === productId) ? (
-                <Button onClick={() => {
-                  cartDispatch({
-                    type: "REMOVE_FROM_CART",
-                    payload: product,
-                  })
-                }} variant="danger">Remove from cart</Button>
+              {cart.some((b) => b.id === id) ? (
+                <Button
+                  onClick={() => {
+                    cartDispatch({
+                      type: "REMOVE_FROM_CART",
+                      payload: product,
+                    });
+                  }}
+                  variant="danger"
+                >
+                  Remove from cart
+                </Button>
               ) : (
-                <Button onClick={() => {
-                  cartDispatch({
-                    type: "ADD_TO_CART",
-                    payload: product,
-                  })
-                }}>Add to Cart</Button>
+                <Button
+                  variant="dark"
+                  onClick={() => {
+                    cartDispatch({
+                      type: "ADD_TO_CART",
+                      payload: product,
+                    });
+                  }}
+                >
+                  Add to Cart
+                </Button>
               )}
             </Card.Body>
           </Card>

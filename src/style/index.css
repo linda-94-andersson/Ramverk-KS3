@@ -26,6 +26,10 @@ a {
   color: inherit !important;
 }
 
+body {
+  background-color: white;
+}
+
 /* HomePage */
 .featured-p {
   color: white;
@@ -51,7 +55,7 @@ a {
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .cartItemDetail {
@@ -61,34 +65,60 @@ a {
   flex-direction: column;
 }
 
-
-
-
-
-
-.galleri {
-  background-color: bisque;
+/* Filters */
+.filters {
+  background-color: #343a40;
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  margin: 10px;
+  height: 86vh;
+  border-radius: 5px;
 }
 
-.items {
-  margin: 20px auto;
-  padding: 5px;
-  /* width: 80%; */
+.filters > span {
+  padding-bottom: 30px;
+}
+
+.title {
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.filter-items {
+  padding: 20px;
+}
+
+/* ProductPage */
+.product-page {
   display: flex;
-  justify-content: space-around;
+}
+
+.filter-container {
+  display: flex;
+  width: 78%;
+  padding: 0px 20px;
   flex-wrap: wrap;
-  border-radius: 5px;
+  justify-content: space-around;
+}
+
+/* ProductComponent */
+.items {
+  margin: -10px auto;
+  padding: 5px;
 }
 
 .item {
-  background-color: blueviolet;
-  width: 300px;
-  height: 550px;
-  border: 1px solid black;
+  background-color: rgba(226, 224, 228, 0.322);
+  width: 350px;
+  height: 94%;
+  border: 1px solid rgba(0, 0, 0, 0.164);
   border-radius: 5px;
   overflow: hidden;
   padding: 10px;
-  margin: 40px 20px;
+  margin: 20px 0px;
 }
 
 .item h2 {
@@ -104,6 +134,11 @@ a {
   line-height: 30px;
 }
 
+.item h4 {
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
 .item button {
   font-weight: 700;
   font-size: 18px;
@@ -112,20 +147,16 @@ a {
   outline: none;
   background-color: black;
   color: white;
-  width: 100%;
+  width: 290px;
   height: 40px;
   display: block;
   cursor: pointer;
   text-transform: uppercase;
-  margin: 15px auto;
-}
-
-.item a {
-  text-decoration: none;
+  margin: 5px auto;
 }
 
 .item button:hover {
-  background-color: red;
+  background-color: rgb(206, 41, 41);
 }
 
 .item button:active {
@@ -134,89 +165,65 @@ a {
 
 .product-img {
   width: 100%;
-  max-width: 300px;
-  min-height: 100px;
-  max-height: 250px;
+  height: 25vh;
   display: block;
-  object-fit: fill;
+  object-fit: contain;
+  padding: 10px;
 }
 
-.cart {
-  background-color: brown;
-}
-
-.cart-item {
-  background-color: coral;
-  margin: 30px auto;
-  width: 50%;
-  border: 2p solid black;
-  border-radius: 5px;
-}
-
-.cart-item-header {
+.btn-section {
+  position: absolute;
+  bottom: 0;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 50px;
-  border-bottom: 2px solid black;
-  font-size: 20px;
-}
-
-.cart-item-empty {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  font-weight: 700;
-  padding: 20px 0px;
-}
-
-.cart-item-img {
-  width: 100px;
-  height: auto;
-  border: 2px solid black;
-  margin-right: 10px;
-}
-
-.item-detail {
-  background-color: cornflowerblue;
-  width: 30%;
-  margin: 10px;
-}
-
-.product-page {
-  display: flex;
-}
-
-.filter-container {
-  display: flex;
-  width: 78%;
-  padding: 0px 20px;
   flex-wrap: wrap;
-  justify-content: space-around;
 }
 
-.filters {
-  background-color: #343a40;
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 100px;
+  background: orange;
   color: white;
+  cursor: pointer;
+  border-radius: 100px;
+  border: none;
+  box-shadow: 0 5px 10px #ccc;
+}
+
+.back-to-top:hover {
+  background: red;
+}
+
+/* ProductDetail */
+.item-detail {
   padding: 20px;
   display: flex;
-  flex-direction: column;
-  width: 15%;
-  margin: 10px;
-  height: 86vh;
+  width: 50vw;
 }
 
-.filters > span {
-  padding-bottom: 20px;
+.item-detail img {
+  width: 100%;
+  object-fit: contain;
+  height: 50vh;
 }
 
-.title {
-  font-size: 30px;
+/* Cart */
+.cart {
+  display: flex;
+}
+
+.productContainer {
+  width: 70vw;
+  padding: 20px;
 }
 
 .summary {
   width: 30%;
+}
+
+.summary button {
+  background-color: #1b4064;
 }
 
 /* Media Queries */
