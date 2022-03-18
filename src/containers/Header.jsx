@@ -44,21 +44,23 @@ const Header = () => {
             />
           </Navbar.Text>
         )}
-        <Nav>
-          <nav className="nav">
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/products">Products</Link>
-              </li>
-              <li>
-                <Link to="/cart">Go to Cart</Link>
-              </li>
-            </ul>
-          </nav>
-          <Dropdown align={{ sm: "left" }}>
+        <Nav className="me-auto">
+          <Nav.Link>
+            <Link to="/">
+              <span className="nav">Home</span>
+            </Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/products">
+              <span className="nav">Products</span>
+            </Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/cart">
+              <span className="nav">Go to Cart</span>
+            </Link>
+          </Nav.Link>
+          <Dropdown align="end" style={{ paddingLeft: 35 }}>
             <Dropdown.Toggle variant="success">
               <i
                 className="fa-solid fa-cart-shopping"
@@ -95,7 +97,10 @@ const Header = () => {
                     </span>
                   ))}
                   <Link to="/cart">
-                    <Button style={{ width: "95%", margin: "0 10px" }}>
+                    <Button
+                      variant="dark"
+                      style={{ width: "95%", margin: "0 10px" }}
+                    >
                       Go to Cart
                     </Button>
                   </Link>

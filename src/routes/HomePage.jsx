@@ -1,18 +1,63 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Button, Card, Carousel } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { CartState } from "../context/Context";
 
 function HomePage() {
-  return (
-    <div className="home">
-      <img src="" alt="product-promotion" /> 
-    <h1>Välkommen till TUNGSTORE</h1>
-    <p>Vi har fullt på bilen i grejor</p>
-    <p>Mycket prisvärt</p>
+  const products = useSelector((state) => state.allProducts.products);
 
-    <span>Klicka här för att se vår klipp</span>
-    <Link to="/products">
-      <button>Se våra klipp</button>
-    </Link>
+  const {
+    productState: { searchQuery },
+  } = CartState();
+
+  const transformProducts = () => {
+    let sortedProducts = products;
+    if (searchQuery) {
+      sortedProducts = sortedProducts.filter((product) =>
+        product.title.toLowerCase().includes(searchQuery)
+      );
+    }
+    return sortedProducts;
+  };
+
+  const renderList = transformProducts().map((product) => {
+    const { id, title, image, category } = product;
+    return (
+      <Carousel.Item key={id}>
+        <Card.Img
+          src={image}
+          alt={title}
+          style={{ height: 600, maxWidth: 700 }}
+        />
+        <Carousel.Caption style={{ paddingBottom: 10 }}>
+          <p className="featured-p">{title}</p>
+          <p className="featured-p">{category}</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  });
+
+  return (
+    <div>
+      <Card>
+        <Card.Title style={{ textAlign: "center" }}>
+          <h1>TUNGSTORE</h1>
+          <h2>Featured products</h2>
+        </Card.Title>
+        {[...Array(1)].map(() => (
+          <div key={renderList}>
+            <Carousel fade variant="dark">
+              {renderList}
+            </Carousel>
+          </div>
+        ))}
+        <Card.Body>
+          <Link to="/products">
+            <Button variant="dark">See all products</Button>
+          </Link>
+        </Card.Body>
+      </Card>
     </div>
   );
 }
