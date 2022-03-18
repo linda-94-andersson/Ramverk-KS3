@@ -22,15 +22,21 @@ const Context = ({ children }) => {
 
   const [state, cartDispatch] = useReducer(cartReducer, {
     products: cartProducts,
-    cart: [],
+    cart: localStorage.getItem("cart")
+      ? JSON.parse(localStorage.getItem("cart"))
+      : [],
   });
+
+  localStorage.setItem("cart", JSON.stringify(state.cart));
 
   const [productState, productDispatch] = useReducer(productReducer, {
     searchQuery: "",
   });
 
   return (
-    <Cart.Provider value={{ state, cartDispatch, productState, productDispatch }}>
+    <Cart.Provider
+      value={{ state, cartDispatch, productState, productDispatch }}
+    >
       {children}
     </Cart.Provider>
   );
