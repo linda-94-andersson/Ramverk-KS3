@@ -60,56 +60,57 @@ const Header = () => {
               <span className="nav">Go to Cart</span>
             </Link>
           </Nav>
-          <Dropdown align="end" style={{ paddingLeft: 35 }}>
-            <Dropdown.Toggle variant="success">
-              <i
-                className="fa-solid fa-cart-shopping"
-                color="white"
-                fontSize="25px"
-              ></i>
-              <Badge bg="none">{cart.length}</Badge>
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu style={{ minWidth: 370 }}>
-              {cart.length > 0 ? (
-                <>
-                  {cart.map((props) => (
-                    <span className="cartitem" key={props.id}>
-                      <img
-                        src={props.image}
-                        className="cartItemImg"
-                        alt={props.title}
-                      />
-                      <div className="cartItemDetail">
-                        <span>{props.title}</span>
-                        <span>${props.price}</span>
-                      </div>
-                      <AiFillDelete
-                        fontSize="20px"
-                        style={{ cursor: "pointer" }}
-                        onClick={() =>
-                          cartDispatch({
-                            type: "REMOVE_FROM_CART",
-                            payload: props,
-                          })
-                        }
-                      />
-                    </span>
-                  ))}
-                  <Link to="/cart">
-                    <Button
-                      variant="dark"
-                      style={{ width: "95%", margin: "0 10px" }}
-                    >
-                      Go to Cart
-                    </Button>
-                  </Link>
-                </>
-              ) : (
-                <span style={{ padding: 10 }}>Cart is Empty!</span>
-              )}
-            </Dropdown.Menu>
-          </Dropdown>
+          {useLocation().pathname.split("/")[1] !== "cart" && (
+            <Dropdown align="end" style={{ paddingLeft: 35 }}>
+              <Dropdown.Toggle variant="success">
+                <i
+                  className="fa-solid fa-cart-shopping"
+                  color="white"
+                  fontSize="25px"
+                ></i>
+                <Badge bg="none">{cart.length}</Badge>
+              </Dropdown.Toggle>
+              <Dropdown.Menu style={{ minWidth: 370 }}>
+                {cart.length > 0 ? (
+                  <>
+                    {cart.map((props) => (
+                      <span className="cartitem" key={props.id}>
+                        <img
+                          src={props.image}
+                          className="cartItemImg"
+                          alt={props.title}
+                        />
+                        <div className="cartItemDetail">
+                          <span>{props.title}</span>
+                          <span>${props.price}</span>
+                        </div>
+                        <AiFillDelete
+                          fontSize="20px"
+                          style={{ cursor: "pointer" }}
+                          onClick={() =>
+                            cartDispatch({
+                              type: "REMOVE_FROM_CART",
+                              payload: props,
+                            })
+                          }
+                        />
+                      </span>
+                    ))}
+                    <Link to="/cart">
+                      <Button
+                        variant="dark"
+                        style={{ width: "95%", margin: "0 10px" }}
+                      >
+                        Go to Cart
+                      </Button>
+                    </Link>
+                  </>
+                ) : (
+                  <span style={{ padding: 10 }}>Cart is Empty!</span>
+                )}
+              </Dropdown.Menu>
+            </Dropdown>
+          )}
         </Nav>
       </Container>
     </Navbar>

@@ -23,3 +23,8 @@ export const productReducer = (state, action) => {
             return state;
     }
 };
+
+// { ...state, cart: state.cart.map((c) => c.id === action.payload.id ? { ...c, qty: action.payload.qty } : c) };
+
+// let tempProductItem = { ...action.payload, cartQuantity: 1 };
+// state.cartItems.push(tempProductItem);

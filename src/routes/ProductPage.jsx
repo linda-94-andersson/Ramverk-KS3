@@ -15,7 +15,7 @@ const ProductPage = () => {
   return (
     <div className="product-page">
       <Filters />
-      <div  className="filter-container">
+      <div className="filter-container">
         <ProductComponent />
       </div>
     </div>

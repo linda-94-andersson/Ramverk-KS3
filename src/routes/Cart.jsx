@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Counter } from "../test redux/Counter";
-import testStore from "../redux/testStore";
-import { Provider } from "react-redux";
-import { CartState } from "../context/Context";
 import { Button, ListGroup, Row, Col, Form, Image } from "react-bootstrap";
 import { AiFillDelete } from "react-icons/ai";
+import { CartState } from "../context/Context";
 
 function Cart() {
   const {
@@ -41,6 +38,22 @@ function Cart() {
                   <span>${props.price}</span>
                 </Col>
                 <Col md={2}>
+                  <Button
+                    value={props.qty}
+                    variant="dark"
+                    onClick={(e) =>
+                      cartDispatch({
+                        type: "CHANGE_CART_QTY",
+                        payload: {
+                          id: props.id,
+                          qty: e.target.value - 1,
+                        },
+                      })
+                    }
+                  >
+                    -
+                  </Button>
+
                   <Form.Control
                     as="select"
                     value={props.qty}
@@ -54,15 +67,26 @@ function Cart() {
                       })
                     }
                   >
-                    {[...Array(10).keys()].map((x) => (
+                    {[...Array(11).keys()].map((x) => (
                       <option key={x + 1}>{x + 1}</option>
                     ))}
                   </Form.Control>
-                </Col>
-                <Col md={2}>
-                  <Provider store={testStore}>
-                    <Counter />
-                  </Provider>
+                  {props.qty}
+                  <Button
+                    value={props.id}
+                    variant="dark"
+                    onClick={() => {
+                      cartDispatch({
+                        type: "ADD_TO_CART",
+                        payload: {
+                          id: props.qty,
+                          qty: props.qty,
+                        },
+                      });
+                    }}
+                  >
+                    +
+                  </Button>
                 </Col>
                 <Col md={2}>
                   <Button
@@ -95,3 +119,5 @@ function Cart() {
 }
 
 export default Cart;
+
+// .toFixed(2)
