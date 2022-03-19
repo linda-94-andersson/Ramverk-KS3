@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Button, Card } from "react-bootstrap";
 import { CartState } from "../context/Context";
 
 const ProductComponent = () => {
-  const [showButton, setShowButton] = useState(false);
-
+  const setShowButton = useRef(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
-        setShowButton(true);
+        setShowButton.current = true;
       } else {
-        setShowButton(false);
+        setShowButton.current = false;
       }
     });
   }, []);
@@ -108,7 +107,7 @@ const ProductComponent = () => {
 
   return (
     <>
-      {renderList}{" "}
+      {renderList}
       <Button variant="dark" className="back-to-top" onClick={scrollToTop}>
         &#8679;
       </Button>

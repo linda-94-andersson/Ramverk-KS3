@@ -18,6 +18,7 @@ const Context = ({ children }) => {
     price: product.price,
     category: product.category,
     description: product.description,
+    qty: product.qty,
   }));
 
   const [state, cartDispatch] = useReducer(cartReducer, {
