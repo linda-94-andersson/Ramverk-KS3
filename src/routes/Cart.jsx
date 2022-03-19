@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Button,
-  ListGroup,
-  Row,
-  Col,
-  Form,
-  Image,
-  Card,
-} from "react-bootstrap";
+import { Button, ListGroup, Row, Col, Image, Card } from "react-bootstrap";
 import { AiFillDelete } from "react-icons/ai";
 import { CartState } from "../context/Context";
 
@@ -90,7 +82,7 @@ function Cart() {
                   </Col>
                   <Col md={2}>
                     <Button
-                    style={{marginTop: 20}}
+                      style={{ marginTop: 20 }}
                       type="button"
                       variant="light"
                       onClick={() =>

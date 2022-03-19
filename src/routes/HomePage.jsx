@@ -47,7 +47,7 @@ function HomePage() {
         </Card.Title>
         {[...Array(1)].map(() => (
           <div key={renderList}>
-            <Carousel fade variant="dark">
+            <Carousel slide variant="dark" style={{ height: 600, width: 700 }}>
               {renderList}
             </Carousel>
           </div>

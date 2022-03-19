@@ -22,10 +22,10 @@ const ProductDetail = () => {
   }, [productId]);
 
   const {
-    state: { cart },
+    state: { cart, qty },
     cartDispatch,
   } = CartState();
-
+  
   return (
     <div>
       {Object.keys(product).length === 0 ? (
@@ -69,6 +69,22 @@ const ProductDetail = () => {
                   Add to Cart
                 </Button>
               )}
+              <Button
+                style={{ width: 150, margin: 20 }}
+                value={qty}
+                variant="dark"
+                onClick={(e) => {
+                  cartDispatch({
+                    type: "ADD_TO_QTY",
+                    payload: {
+                      id: id,
+                      qty: e.target.value + 1,
+                    },
+                  });
+                }}
+              >
+                Add more +
+              </Button>
             </Card.Body>
           </Card>
         </div>
