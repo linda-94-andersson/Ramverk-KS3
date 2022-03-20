@@ -23,12 +23,13 @@ function Cart() {
             {cart.map((props) => (
               <ListGroup.Item
                 key={props.id}
-                style={{ height: 200, width: 1000 }}
+                style={{ minHeight: 200, width: "65vw" }}
+                className="cart-list-g-item"
               >
                 <Row>
                   <Col md={2}>
                     <Image
-                      style={{ objectFit: "contain", height: 180 }}
+                      style={{ objectFit: "contain", maxHeight: 180 }}
                       src={props.image}
                       alt={props.title}
                       fluid
@@ -41,9 +42,21 @@ function Cart() {
                   <Col md={2}>
                     <span>${props.price}</span>
                   </Col>
-                  <Col md={2}>
+                  <Col
+                    md={2}
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
                     <Button
-                      style={{ width: 100, margin: 20 }}
+                      style={{
+                        minWidth: 100,
+                        margin: 20,
+                        height: 40,
+                      }}
                       value={props.qty}
                       variant="dark"
                       onClick={(e) =>
@@ -59,12 +72,18 @@ function Cart() {
                       -
                     </Button>
                     <Card
-                      style={{ padding: 2, width: 100, alignItems: "center" }}
+                      style={{
+                        padding: 2,
+                        minWidth: 100,
+                        alignItems: "center",
+                        height: 40,
+                        justifyContent: "center",
+                      }}
                     >
                       {props.qty}
                     </Card>
                     <Button
-                      style={{ width: 100, margin: 20 }}
+                      style={{ minWidth: 100, margin: 20, height: 40 }}
                       value={props.qty}
                       variant="dark"
                       onClick={(e) => {

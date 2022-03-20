@@ -28,7 +28,7 @@ function HomePage() {
         <Card.Img
           src={image}
           alt={title}
-          style={{ height: 600, width: 700, objectFit: "contain" }}
+          style={{ maxHeight: 600, maxWidth: 700, objectFit: "contain" }}
         />
         <Carousel.Caption style={{ paddingBottom: 10 }}>
           <p className="featured-p">{title}</p>
@@ -47,7 +47,11 @@ function HomePage() {
         </Card.Title>
         {[...Array(1)].map(() => (
           <div key={renderList}>
-            <Carousel slide variant="dark" style={{ height: 600, width: 700 }}>
+            <Carousel
+              slide
+              variant="dark"
+              style={{ maxHeight: 600, maxWidth: 700 }}
+            >
               {renderList}
             </Carousel>
           </div>

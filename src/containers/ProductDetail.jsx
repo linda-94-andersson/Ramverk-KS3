@@ -33,7 +33,7 @@ const ProductDetail = () => {
       ) : (
         <div className="item-detail" key={id}>
           <Card>
-            <Card.Img variant="top" src={image} alt={title} />
+            <Card.Img variant="top" src={image} alt={title}  />
             <Card.Body>
               <Card.Title>
                 <h1>{title}</h1>
@@ -70,7 +70,7 @@ const ProductDetail = () => {
                 </Button>
               )}
               <Button
-                style={{ width: 150, margin: 20 }}
+                style={{ width: 150, marginLeft: 20 }}
                 value={qty}
                 variant="dark"
                 onClick={(e) => {
