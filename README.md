@@ -1,9 +1,21 @@
-# Kunskapskontroll 3
-
-
 ## Deployment
+* https://ramverk-ks3.netlify.app/
 
-https://ramverk-ks3.netlify.app/
+## Skills used for this project
+* HTML
+* CSS
+* JavaScript
+* React
+* Redux
+* Axios
+* API
+* Bootstrap
+* Vite
+* Netlify
+
+## Requirements
+
+# Kunskapskontroll 3
 
 ## How
 
@@ -28,20 +40,29 @@ Det är inget krav på följande i denna kunskapskontroll:
 
 Denna kunskapskontrollen kan du uppnå betygen Väl Godkänt, Godkänt eller Icke Godkänt.
 
-För betyget Godkänt behöver följande krav uppfyllas:
+## För betyget Godkänt behöver följande krav uppfyllas:
 
-1. Den ska innehålla minst tre (3) sidor/routes: 
-  - En sida med en lista på produkter (ex. /products)
-  - En sida med information om en enskild produkt (ex. /products/:id)
-  - En sida där användaren kan se sin varukorg (ex. /cart)
-2. Användaren ska kunna lägga till och ta bort produkter ur varukorgen
-3. Applikationen ska använda Routing för att byta sida
-4. Applikationen ska finnas deployad/publicerad på exempelvis Netlify eller Github Pages
+### Den ska innehålla minst tre (3) sidor/routes: 
 
-För betyget Väl Godkänt behöver kraven för Godkänt uppfyllas, samt följande krav uppfyllas:
+  * En sida med en lista på produkter (ex. /products)
 
-1. Spara innehållet i varukorgen även när man laddar om applikationen (ex. hålla varukorgen sparad/uppdaterad i localStorage)
-2. Användaren ska kunna välja antal produkter att lägga till i varukorgen när de lägger till en produkt
-3. Användaren ska kunna öka och minska antal av en produkt
-4. Implementera applikationen responsivt, så layouten anpassas automatiskt efter enheten användaren använder.
+  * En sida med information om en enskild produkt (ex. /products/:id)
+
+  * En sida där användaren kan se sin varukorg (ex. /cart)
+
+* Användaren ska kunna lägga till och ta bort produkter ur varukorgen
+
+* Applikationen ska använda Routing för att byta sida
+
+* Applikationen ska finnas deployad/publicerad på exempelvis Netlify eller Github Pages
+
+## För betyget Väl Godkänt behöver kraven för Godkänt uppfyllas, samt följande krav uppfyllas:
+
+* Spara innehållet i varukorgen även när man laddar om applikationen (ex. hålla varukorgen sparad/uppdaterad i localStorage)
+
+* Användaren ska kunna välja antal produkter att lägga till i varukorgen när de lägger till en produkt
+
+* Användaren ska kunna öka och minska antal av en produkt
+
+* Implementera applikationen responsivt, så layouten anpassas automatiskt efter enheten användaren använder.
 (Jag kommer att testa mobil-versionen applikationen med förvalet iPhone XR i Chrome - 414x896px)
